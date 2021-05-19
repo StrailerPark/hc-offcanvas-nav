@@ -1623,6 +1623,8 @@
       $nav.open = openNav;
 
       $nav.close = closeNav;
+	  
+	  $nav.closeLevel = closeLevel;
 
       $nav.toggle = toggleNav(null);
 
