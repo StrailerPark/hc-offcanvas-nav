@@ -60,6 +60,7 @@
       closeOpenLevels:    true,
       closeActiveLevel:   false,
       navTitle:           null,
+      navTitleOnEveryLvl: false,
       navClass:           '',
       disableBody:        true,
       closeOnClick:       true,
@@ -579,6 +580,17 @@
             // Nav ARIA title
             if (level === 0 && typeof title === 'string') {
               $nav.setAttribute('aria-labelledby', `${navUniqId}-nav-title`);
+            }
+			
+            if (Settings.navTitleOnEveryLvl && Settings.navTitle && level > 0) {
+                const _navtitle = typeof Settings.navTitle === 'string'
+                  ? Settings.navTitle
+                  : Helpers.clone(window.jQuery && Settings.navTitle instanceof window.jQuery && Settings.navTitle.length ? Settings.navTitle[0] : Settings.navTitle, true, true);
+
+                $content.insertBefore(Helpers.createElement('h2', {
+                  id: null,
+                  class: 'nav-title'
+                }, _navtitle), $content.firstChild);
             }
           }
 
