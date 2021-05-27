@@ -589,7 +589,7 @@
 
                 $content.insertBefore(Helpers.createElement('h2', {
                   id: null,
-                  class: 'nav-title'
+                  class: 'level-title'
                 }, _navtitle), $content.firstChild);
             }
           }
